@@ -24,4 +24,4 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Test
-        run: docker-compose run web sh -c "python manage.py test"
+        run: docker-compose run -u root web sh -c "python manage.py test"
