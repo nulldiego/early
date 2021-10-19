@@ -23,7 +23,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: Install docker-compose 1.23.2
+        run: pip install docker-compose==1.23.2
+      - name: Check docker-compose version
+        run: docker-compose --version
       - name: Test
-        run: |
-          docker-compose --version
-          docker-compose run -u root web sh -c "python manage.py test"
+        run: docker-compose run -u root web sh -c "python manage.py test"
